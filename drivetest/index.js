@@ -16,7 +16,7 @@ const driveTestRouter = require('./routers/driveTestRouter');
 const examinerRouter = require("./routers/examinerRouter");
 
 // connecting to database
-mongoose.connect('mongodb+srv://admin:admin@cluster0.p845w8e.mongodb.net/drivetest?retryWrites=true&w=majority');
+mongoose.connect(''); ///paste link of your mongoodb is here.
 //// Create the database "blogapp" if it doesn't exist.
 //// Need to change <password> to the real one you have set
 app.listen(7777, () => {
