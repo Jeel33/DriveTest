@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head -->
+<%- include('../layouts/head.ejs'); -%>
+
+	<body>
+		<!-- Navigation-->
+		<%- include('../layouts/nav.ejs'); -%>
+			<!-- Page Header-->
+			<header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+				<div class="container position-relative px-4 px-lg-5">
+					<div class="row gx-4 gx-lg-5 justify-content-center">
+						<div class="col-md-10 col-lg-8 col-xl-7">
+							<div class="site-heading">
+								<h1>Appointment</h1>
+								<span class="subheading">DriveTest Booking Kiosk</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<!-- Main Content-->
+			<div class="container px-4 px-lg-5">
+				<div class="row gx-4 gx-lg-5 justify-content-center">
+					<div class="col-md-10 col-lg-8 col-xl-7">
+						<!-- Form -->
+						<form class="row g-3" action="/postAppointment" method="POST">
+							<!-- Date -->
+							<div class="col-12 mb-3">
+								<label for="appointmentDate" class="form-label">Appointment Date</label>
+								<input type="date" name="date" id="appointmentDate" class="form-control">
+							</div>
+							<!-- Slots -->
+							<div class=" col-12 mb-3">
+								<input type="hidden" value="<%= appointments %>" id="appointments">
+								<label for="appointmentSlots" class="form-label">Appointment Slots</label>
+								<select class="form-select" aria-label="Default select example" name="time"
+									id="appointmentSlots">
+								</select>
+							</div>
+							<!-- Submit -->
+							<div class="col-12 mb-3 d-flex justify-content-center">
+								<button type="submit" class="col-12 btn btn-primary">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- Footer-->
+			<%- include('../layouts/footer.ejs'); -%>
+				<!-- Scripts -->
+				<%- include('../layouts/scripts.ejs'); -%>
+	</body>
+
+</html>

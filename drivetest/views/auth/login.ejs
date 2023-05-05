@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head -->
+<%- include('../layouts/head.ejs'); -%>
+
+	<body>
+		<!-- Navigation-->
+		<%- include('../layouts/nav.ejs'); -%>
+			<!-- Page Header-->
+			<header class="masthead" style="background-image: url('/assets/img/contact-bg.jpg')">
+				<div class="container position-relative px-4 px-lg-5">
+					<div class="row gx-4 gx-lg-5 justify-content-center">
+						<div class="col-md-10 col-lg-8 col-xl-7">
+							<div class="page-heading">
+								<h1>Login</h1>
+								<span class="subheading">Have questions? I have answers.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<!-- Main Content-->
+			<!-- <main class="mb-4">
+				<div class="container px-4 px-lg-5">
+					<div class="row gx-4 gx-lg-5 justify-content-center">
+						<div class="col-md-10 col-lg-8 col-xl-7">
+							<h3 class="mb-4" style="text-align: center;">Under construction</h3>
+						</div>
+					</div>
+				</div>
+			</main> -->
+			<main class="container">
+				<div class="row justify-content-center gap-4">
+					<!-- sign up -->
+					<div class="col-4">
+						<h2>Sign up</h2>
+						<form class="needs-validation col-12 d-flex justify-content-center flex-column gap-4 signForm"
+							action="/auth/signup" method="POST">
+							<div class="form-floating">
+								<input type="text" class="form-control" id="userName1" name="userName"
+									placeholder="username" value="" required>
+								<label for="userName2">User Name</label>
+							</div>
+							<div class="form-floating">
+								<input type="password" class="form-control" id="password1" name="password"
+									placeholder="password" value="" required>
+								<label for="password1">Password</label>
+							</div>
+							<div class="form-floating">
+								<input type="password" class="form-control" id="confirmPw" name="confirmPw"
+									placeholder="confirm password" value="" required>
+								<label for="confirmPw">Confirm Password</label>
+							</div>
+							<div class="">
+								<select class="form-select form-select-lg" aria-label="Default select example"
+									name="userType">
+									<option selected value="Driver">Driver</option>
+									<option value="Examiner">Examiner</option>
+									<option value="Admin">Admin</option>
+								</select>
+								<!-- <label for="userType">User Type</label> -->
+							</div>
+							<button type="submit" class="btn btn-primary my-3">Sign up</button>
+						</form>
+					</div>
+
+					<!-- login -->
+					<div class="col-4">
+						<h2>Sign in</h2>
+						<form class="needs-validation col-12 d-flex justify-content-center flex-column gap-4"
+							action="/auth/postSignIn" method="POST">
+							<div class="form-floating">
+								<input type="text" class="form-control" id="userName2" name="userName"
+									placeholder="username" value="" required />
+								<label for="userName2">User Name</label>
+							</div>
+							<div class="form-floating">
+								<input type="password" class="form-control" id="password2" name="password"
+									placeholder="password" value="" required>
+								<label for="password2">Password</label>
+							</div>
+							<button type="submit" class="btn btn-primary my-3">Sign in</button>
+						</form>
+					</div>
+				</div>
+			</main>
+			<!-- Footer-->
+			<%- include('../layouts/footer.ejs'); -%>
+				<!-- Scripts -->
+				<%- include('../layouts/scripts.ejs'); -%>
+	</body>
+
+</html>

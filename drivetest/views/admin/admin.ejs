@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head -->
+<%- include('../layouts/head.ejs'); -%>
+
+<body>
+  <!-- Navigation-->
+  <%- include('../layouts/nav.ejs'); -%>
+  <!-- Page Header-->
+  <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <div class="site-heading">
+            <h1>Test Result</h1>
+            <span class="subheading">Pass or Fail</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Main Content-->
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <% if (filterData.length) { %>
+        <div class="list-group mb-5">
+          <% filterData.forEach(item => { %>
+          <% if (item?.userId?.userType == "Driver" && item?.userId?.testResult?.testType) { %>
+          <div class="list-group-item">
+            <!-- <form class="needs-validation col-12 d-flex justify-content-center flex-column"> -->
+              <ul class="list-group list-group-horizontal mt-3 mb-3">
+                <li class="list-group-item">
+                  <label for="firstName">First Name</label>
+                  <input type="text" class="form-control" id="firstName" name="firstName" value="<%= item?.userId?.firstName %>" disabled />
+                </li>
+                <li class="list-group-item">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" name="lastName" value="<%= item?.userId?.lastName %>" disabled />
+                </li>
+                <li class="list-group-item">
+                  <label for="testType">Test Type</label>
+                  <input type="text" class="form-control" id="testType" name="testType" value="<%= item?.userId?.testResult?.testType %>" disabled />
+                </li>
+                <li class="list-group-item">
+                  <label for="testResult">Test Result</label>
+                  <input type="text" class="form-control" id="testResult" name="testResult" value="<%= item?.userId?.testResult?.isPassed ?'Passed':'Failed' %>" disabled />
+                </li>
+              </ul>
+            <!-- </form> -->
+          </div>
+          <% } %>
+          <% }) %>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <!-- Footer-->
+  <%- include('../layouts/footer.ejs'); -%>
+  <!-- Scripts -->
+  <%- include('../layouts/scripts.ejs'); -%>
+</body>
+
+</html>

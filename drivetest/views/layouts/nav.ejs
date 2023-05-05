@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+  <div class="container px-4 px-lg-5">
+    <a class="navbar-brand" href="/">Book DriveTest</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto py-4 py-lg-0">
+        <!-- Dashboard -->
+        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">DASHBOARD</a></li>
+
+        <% if (isAuthenticated) { %>
+
+        <!-- Driver -->
+        <% if (userType=='Driver' ) { %>
+        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/G2_TEST">G2_TEST</a></li>
+        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/G_TEST">G_TEST</a></li>
+        <% } %>
+
+        <!-- Admin -->
+        <% if (userType=='Admin' ) { %>
+        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/appointment">APPOINTMENT</a></li>
+        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/admin">ADMIN</a></li>
+        <% } %>
+
+        <!-- Examiner -->
+        <% if (userType=='Examiner' ) { %>
+        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/examiner/appointmentList">APPOINTMENT LIST</a></li>
+        <% } %>
+
+        <!-- Logout -->
+        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/auth/logout">LOGOUT</a>
+        </li>
+
+        <% } else { %>
+
+        <!-- Login -->
+        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/auth/login">LOGIN</a></li>
+
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>

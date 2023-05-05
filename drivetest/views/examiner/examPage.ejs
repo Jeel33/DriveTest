@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <%- include('../layouts/head.ejs'); -%>
+
+  <body>
+    <!-- Navigation-->
+    <%- include('../layouts/nav.ejs'); -%>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+      <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="site-heading">
+              <h1>Examiner</h1>
+              <span class="subheading">Appointment List</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7 mb-5">
+          <!-- Form -->
+          <form class="row g-3" action="">
+
+            <input type="hidden" value="<%= examinerAllAppointments %>" id="examinerAllAppointments" />
+
+            <!-- Filter -->
+            <div class="col-12 mb-3">
+              <label for="filterTestType" class="form-label">Test Type</label>
+              <select class="form-select" aria-label="Default select example" name="filterTestType" id="filterTestType">
+                <option value="ALL">ALL</option>
+                <option value="G2">G2</option>
+                <option value="G">G</option>
+              </select>
+            </div>
+          </form>
+
+          <!-- Divider -->
+          <hr class="my-4" />
+
+					<!-- Appintment List -->
+          <div class="list-group" id="renderAppointments">
+							<!-- render appointments -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer-->
+    <%- include('../layouts/footer.ejs'); -%>
+    <!-- Scripts -->
+    <%- include('../layouts/scripts.ejs'); -%>
+  </body>
+</html>

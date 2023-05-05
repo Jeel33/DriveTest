@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head -->
+<%- include('../layouts/head.ejs'); -%>
+
+<body>
+  <!-- Navigation-->
+  <%- include('../layouts/nav.ejs'); -%>
+  <!-- Page Header-->
+  <header class="masthead" style="background-image: url('/assets/img/post-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <div class="page-heading">
+            <h1>G Test</h1>
+            <span class="subheading">Book a road test.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Main Content-->
+  <main class="mb-4">
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <!-- Form -->
+          <form class="row g-3" action="/G_TEST/:id" method="POST">
+            <!-- First Name -->
+            <div class="col-md-6 mb-3">
+              <label for="firstName" class="form-label">First Name</label>
+              <input type="text" name="firstName" id="firstName" class="form-control" required placeholder="First
+                Name" value="<%= user.firstName == 'default' ? '' : user.firstName %>" <%=user.firstName=='default' ? ''
+                : "disabled" %>>
+            </div>
+            <!-- Last Name -->
+            <div class="col-md-6 mb-3">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input type="text" name="lastName" id="lastName" class="form-control" required placeholder="Last Name" value="<%= user.lastName == 'default' ? '' : user.lastName %>" <%=user.lastName=='default' ? '' :
+                "disabled" %>>
+            </div>
+            <!-- Age -->
+            <div class="col-12 mb-3">
+              <label for="age" class="form-label">Age</label>
+              <input type="text" name="age" id="age" class="form-control" required placeholder="Age" value="<%=
+                user.age == 0 ? '' : user.age %>" <%=user.age==0 ? '' : "disabled" %>>
+            </div>
+            <!-- Divider -->
+            <hr class="my-4" />
+            <!-- Make -->
+            <div class="col-12 mb-3">
+              <label for="make" class="form-label">Make</label>
+              <input type="text" name="make" id="make" class="form-control" required value="<%= user.car_details.make == 'default' ? '' : user.car_details.make %>" />
+            </div>
+            <!-- Model -->
+            <div class="col-12 mb-3">
+              <label for="model" class="form-label">Model</label>
+              <input type="text" name="model" id="model" class="form-control" required value="<%= user.car_details.model == 'default' ? '' : user.car_details.model %>" />
+            </div>
+            <!-- Year -->
+            <div class="col-12 mb-3">
+              <label for="year" class="form-label">Year</label>
+              <input type="number" name="year" id="year" class="form-control" required value="<%= user.car_details.year == 'default' ? '' : user.car_details.year %>" />
+            </div>
+            <!-- Plat Number -->
+            <div class="col-12 mb-3">
+              <label for="platNo" class="form-label">Plat Number</label>
+              <input type="text" name="platNo" id="platNo" class="form-control" required value="<%= user.car_details.platNo == 'default' ? '' : user.car_details.platNo %>" />
+            </div>
+            <!-- Booking -->
+            <% if (filteredData.length) { %>
+            <hr />
+            <h4 class="col-12 mb-3">You already booked these time slots as below:</h4>
+            <ol class="d-flex flex-column justify-content-around w-100">
+              <% filteredData.forEach(item=> { %>
+              <li class="d-flex justify-content-around w-50">
+                <p style="margin: 0.5rem 0"><%= item.date %></p>
+                <p style="margin: 0.5rem 0"><%= item.time %></p>
+              </li>
+              <% }) %>
+            </ol>
+            <hr />
+            <% } %>
+            <!-- Date -->
+            <div class="col-12 mb-3">
+              <label for="driverAppointmentDate" class="form-label">Appointment
+                Date</label>
+              <input type="date" name="date" id="driverAppointmentDate" class="form-control">
+            </div>
+            <!-- Slots -->
+            <div class=" col-12 mb-3">
+              <label for=driverAppointmentSlots" class="form-label">Appointment Slots</label>
+              <select class="form-select" aria-label="Default select example" name="time" id="driverAppointmentSlots">
+              </select>
+            </div>
+            <!-- Submit -->
+            <div class="col-12 mb-3 d-flex justify-content-center">
+              <button type="submit" class="col-12 btn btn-primary">Update</button>
+            </div>
+            <!-- Hidden -->
+            <input type="hidden" value="<%= user._id %>" name="userId" />
+            <input type="hidden" value="G" name="examType" />
+            <input type="hidden" value="<%= appointments %>" id="appointments">
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Footer-->
+  <%- include('../layouts/footer.ejs'); -%>
+  <!-- Scripts -->
+  <%- include('../layouts/scripts.ejs'); -%>
+</body>
+
+</html>

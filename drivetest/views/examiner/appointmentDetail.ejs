@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <%- include('../layouts/head.ejs'); -%>
+
+  <body>
+    <!-- Navigation-->
+    <%- include('../layouts/nav.ejs'); -%>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+      <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="site-heading">
+              <h1>Appointment Detail</h1>
+              <span class="subheading">Driver Information</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <!-- Form -->
+          <form class="row g-3" action="/examiner/evaluation" method="POST">
+            <!-- First Name -->
+            <div class="col-md-6 mb-3">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                class="form-control"
+                value="<%= user.firstName %>"
+                disabled
+              />
+            </div>
+            <!-- Last Name -->
+            <div class="col-md-6 mb-3">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                class="form-control"
+                value="<%= user.lastName %>"
+                disabled
+              />
+            </div>
+            <!-- Divider -->
+            <hr class="my-4" />
+            <!-- Make -->
+            <div class="col-12 mb-3">
+              <label for="make" class="form-label">Make</label>
+              <input
+                type="text"
+                name="make"
+                id="make"
+                class="form-control"
+                value="<%= user.car_details.make %>"
+                disabled
+              />
+            </div>
+            <!-- Model -->
+            <div class="col-12 mb-3">
+              <label for="model" class="form-label">Model</label>
+              <input
+                type="text"
+                name="model"
+                id="model"
+                class="form-control"
+                value="<%= user.car_details.model %>"
+                disabled
+              />
+            </div>
+            <!-- Year -->
+            <div class="col-12 mb-3">
+              <label for="year" class="form-label">Year</label>
+              <input
+                type="number"
+                name="year"
+                id="year"
+                class="form-control"
+                value="<%= user.car_details.year %>"
+                disabled
+              />
+            </div>
+            <!-- Plat Number -->
+            <div class="col-12 mb-3">
+              <label for="platNo" class="form-label">Plat Number</label>
+              <input
+                type="text"
+                name="platNo"
+                id="platNo"
+                class="form-control"
+                value="<%= user.car_details.platNo %>"
+                disabled
+              />
+            </div>
+            <!-- Divider -->
+            <hr class="my-4" />
+            <!-- Result -->
+            <div class="col-12 mb-3 text-center">
+              <h2>Test Result</h2>
+            </div>
+            <!-- Pass or fail -->
+            <div class="form-group d-flex flex-row justify-content-around">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="examResult" id="Pass" value="Pass" />
+                <label class="form-check-label mt-1" for="Pass"> Pass </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="examResult" id="Fail" value="Fail" />
+                <label class="form-check-label mt-1" for="Fail"> Fail </label>
+              </div>
+            </div>
+            <!-- Comment -->
+            <div class="form-group mb-4">
+              <label for="exampleFormControlTextarea1">comment</label>
+              <textarea class="form-control" id="examComment" name="examComment" rows="3"></textarea>
+            </div>
+            <!-- Hidden and Submit -->
+            <div class="form-group d-flex flex-column mb-5">
+              <input type="hidden" value="<%= user.testType %>" name="examType" />
+              <input type="hidden" value="<%= user._id %>" name="userId" />
+              <button class="btn btn-danger mb-3">Submit</button>
+              <a href="/examiner/appointmentList" class="btn btn-primary">Go Back</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Footer-->
+    <%- include('../layouts/footer.ejs'); -%>
+    <!-- Scripts -->
+    <%- include('../layouts/scripts.ejs'); -%>
+  </body>
+</html>
